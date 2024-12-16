@@ -12,7 +12,7 @@
                 border-radius: 0px 0px 40px 40px;
                 font-family: 'Roboto', sans-serif;
                 background-color: #201f1e;
-                background-image: url('/storage/background/bg.jpg');
+                /* background-image: url('/storage/background/bg.jpg'); */
                 color: white !important;
                 border-bottom: 0.5px solid #2c2c2c3f;
                 background-size: cover;
