@@ -1,0 +1,131 @@
+    .container-fluid {
+        background-color: #fdfdfd;
+        height: 100vh;
+    }
+
+    .body {
+        color: white;
+        background-color: green;
+    }
+
+    .hero_section {
+                border-radius: 0px 0px 40px 40px;
+                font-family: 'Roboto', sans-serif;
+                background-color: #201f1e;
+                background-image: url('/storage/background/bg.jpg');
+                color: white !important;
+                border-bottom: 0.5px solid #2c2c2c3f;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+        }
+
+        .hero_section::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, rgba(235, 235, 235, 0) 0%, rgba(0, 0, 0, 0.568) 100%);
+                border-radius: 0px 0px 40px 40px;
+                z-index: 1;
+        }
+    .hero_section > * {
+        position: relative;
+        z-index: 2;
+    }
+    .explore {
+        box-shadow: none !important;
+    }
+
+    .tags {
+        overflow-x: scroll;
+    }
+
+    .tags .tag {
+        width: auto;
+        border-radius: 10px;
+        font-size: 13px;
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: rgb(249, 249, 249);
+        font-weight: bold;
+    }
+    .showcase {
+        padding-top: 50px;
+        height: auto;
+    }
+
+    .card_block {
+        box-shadow: #63636333 0px 2px 8px 0px;
+        background-color: #ffffffda;
+    }
+
+    .card_img {
+        width: 50px;
+        height: 50px;
+        border-radius: 20%;
+
+    }
+    .card-bg{
+        width: 100%;
+        height: 100px;
+        /* background-image: url('http://127.0.0.1:8000/storage/post/bg.jpg'); */
+        background-image: url('/storage/background/bg2.jpg');
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+    }
+
+    .card_title {
+        font-size: 13px;
+    }
+
+    .card_description {
+        font-size: 13px;
+    }
+    .card_summary{
+        font-size: 12px;
+        color: #000000ac;
+    }
+
+    .badge {
+        font-size: 10px;
+    }
+
+    .text {
+        font-size: 9px;
+    }
+
+    .bg-light-danger {
+        background-color: #fe00007b;
+    }
+
+    .loading-notch{
+        top: 35%;
+        right: 5px;
+    }
+    ::-webkit-scrollbar {
+        width: 5px !important;
+        height: 10px !important;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        /* box-shadow: inset 0 0 5px rgba(212, 212, 212, 0.857) !important; */
+        border-radius: 2px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #3C3C45 !important;
+        border-radius: 5px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+
+        background: #b0adad !important;
+    }
