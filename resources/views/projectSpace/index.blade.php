@@ -1,7 +1,7 @@
 
 <x-layout :style='asset("css/mySpace/codeSpace.css")' wire:key='nav'>
     <div class="container-fluid p-0">
-        <section class="w-auto  hero_section shadow-sm p-1 " style="background: url({{asset('/background/bg.jpg')}})">
+        <section class="w-auto  hero_section hero_section-filter shadow-sm p-1 " style="background: url({{asset('/background/bg.jpg')}})">
             <nav class="container d-flex justify-content-between  fw-bold p-2">
                 <div class="logo text-white">Yan</div>
                 <div class="link text-white">Verse</div>

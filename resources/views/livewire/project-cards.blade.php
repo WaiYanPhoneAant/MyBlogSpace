@@ -23,7 +23,7 @@
                 </div> --}}
                 <a href="{{route('space.show',$project->id)}}" wire:navigate class="text-decoration-none">
                     <div class="card_block p-3 rounded-3">
-                        <div class="card-bg col-12"></div>
+                        <div class="card-bg col-12" style="background-image: url({{asset('/background/bg2.jpg')}})"></div>
                         <div class="d-flex flex-column align-items-start mt-3">
                             <h2 class="card_title pt-1 text-dark fw-semibold mb-1">{{$project->title}}</h2>
                             {{-- <span class="card_description text-muted mt-0 ">{{$project->title }}</span> --}}
