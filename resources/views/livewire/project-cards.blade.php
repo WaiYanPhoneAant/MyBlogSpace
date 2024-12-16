@@ -9,30 +9,7 @@
     @if (count($projects)>0)
     <div class="col-12 row justify-content-center align-items-center" wire:loading.remove>
         @foreach ($projects as $project)
-            <div wire:key="{{$project->id}}_ad" class="col-lg-3 col-md-6 col-12 mb-3 p-2">
-                <div class="">
-                    <script async
-                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
-                        crossorigin="anonymous"></script>
-                    <!-- blog-card -->
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1618114950811949"
-                        data-ad-slot="2713233795" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-            </div>
             <div wire:key="{{$project->id}}" class="col-lg-3 col-md-6 col-12 mb-3 p-2">
-                <div class="">
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
-                        crossorigin="anonymous"></script>
-                    <!-- blog-card -->
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1618114950811949" data-ad-slot="2713233795"
-                        data-ad-format="auto" data-full-width-responsive="true"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
                 <a href="{{route('space.show',$project->id)}}" wire:navigate class="text-decoration-none">
                     <div class="card_block p-3 rounded-3">
                         <div class="card-bg col-12" style="background-image: url({{asset('/background/bg2.jpg')}})"></div>
@@ -65,6 +42,19 @@
                         </div>
                     </div>
                 </a>
+            </div>
+            <div wire:key="{{$project->id}}_ad" class="col-lg-3 col-md-6 col-12 mb-3 p-2">
+                <div class="">
+                    <script async
+                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
+                        crossorigin="anonymous"></script>
+                    <!-- blog-card -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1618114950811949"
+                        data-ad-slot="2713233795" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
             </div>
         @endforeach
     </div>
