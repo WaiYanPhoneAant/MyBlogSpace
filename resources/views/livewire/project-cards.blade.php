@@ -8,7 +8,7 @@
     </div>
     @if (count($projects)>0)
     <div class="col-12 row justify-content-center align-items-center" wire:loading.remove>
-        <div wire:key="{{$project->id}}_ad" class="col-lg-3 col-md-6 col-12 mb-3 p-2">
+        <div  class="col-lg-3 col-md-6 col-12 mb-3 p-2">
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
                 crossorigin="anonymous"></script>
             <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid"
