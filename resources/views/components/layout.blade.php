@@ -14,7 +14,7 @@
 
     <meta property="og:title" content="Blog By Verse">
     <meta property="og:description" content="Blog By Verse.">
-    <meta property="og:image" content="{{ asset('backgroun/bg.jpg') }}">
+    <meta property="og:image" content="{{ asset('background/bg.jpg') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
 
