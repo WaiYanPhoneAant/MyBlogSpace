@@ -1,0 +1,87 @@
+{
+  "users": {
+    "id": "integer primary key",
+    "name": "string",
+    "email": "string",
+    "password": "string",
+    "profile_image": "string",
+    "role": "string",
+    "timestamps": true
+  },
+  "posts": {
+    "id": "integer primary key",
+    "user_id": "integer",
+    "title": "string",
+    "slug": "string unique",
+    "content": "text",
+    "excerpt": "string",
+    "featured_image": "string",
+    "status": "string",
+    "published_at": "timestamp",
+    "timestamps": true,
+    "foreign_keys": {
+      "user_id": "users(id)"
+    }
+  },
+  "categories": {
+    "id": "integer primary key",
+    "name": "string",
+    "slug": "string unique",
+    "description": "text",
+    "timestamps": true
+  },
+  "tags": {
+    "id": "integer primary key",
+    "name": "string",
+    "slug": "string unique",
+    "timestamps": true
+  },
+  "post_category": {
+    "post_id": "integer",
+    "category_id": "integer",
+    "timestamps": true,
+    "foreign_keys": {
+      "post_id": "posts(id)",
+      "category_id": "categories(id)"
+    }
+  },
+  "post_tag": {
+    "post_id": "integer",
+    "tag_id": "integer",
+    "timestamps": true,
+    "foreign_keys": {
+      "post_id": "posts(id)",
+      "tag_id": "tags(id)"
+    }
+  },
+  "comments": {
+    "id": "integer primary key",
+    "post_id": "integer",
+    "user_id": "integer",
+    "name": "string",
+    "email": "string",
+    "content": "text",
+    "status": "string",
+    "timestamps": true,
+    "foreign_keys": {
+      "post_id": "posts(id)",
+      "user_id": "users(id)"
+    }
+  },
+  "likes": {
+    "id": "integer primary key",
+    "post_id": "integer",
+    "user_id": "integer",
+    "timestamps": true,
+    "foreign_keys": {
+      "post_id": "posts(id)",
+      "user_id": "users(id)"
+    }
+  },
+  "settings": {
+    "id": "integer primary key",
+    "key": "string",
+    "value": "string",
+    "timestamps": true
+  }
+}
