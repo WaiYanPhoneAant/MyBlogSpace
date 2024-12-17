@@ -8,6 +8,15 @@
     </div>
     @if (count($projects)>0)
     <div class="col-12 row justify-content-center align-items-center" wire:loading.remove>
+        <div wire:key="{{$project->id}}_ad" class="col-lg-3 col-md-6 col-12 mb-3 p-2">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid"
+                data-ad-client="ca-pub-1618114950811949" data-ad-slot="5480126264"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
         @foreach ($projects as $project)
             <div wire:key="{{$project->id}}" class="col-lg-3 col-md-6 col-12 mb-3 p-2">
                 <a href="{{route('space.show',$project->id)}}" wire:navigate class="text-decoration-none">
