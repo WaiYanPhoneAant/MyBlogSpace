@@ -43,6 +43,15 @@
             </div>
         </div>
         <div class="col-10 mt-5 m-auto">
+            <div class="">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid"
+                    data-ad-client="ca-pub-1618114950811949" data-ad-slot="6740942869"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
             <p class="text-muted">
                 {!! $project->description !!}
             </p>
