@@ -8,16 +8,14 @@
     </div>
     @if (count($projects)>0)
     <div class="col-12 row justify-content-center align-items-center" wire:loading.remove>
-        <div  class="col-lg-3 col-md-6 col-12 mb-3 p-2">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
-                crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid"
-                data-ad-client="ca-pub-1618114950811949" data-ad-slot="5480126264"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        @foreach ($projects as $project)
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
+            crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid"
+            data-ad-client="ca-pub-1618114950811949" data-ad-slot="5480126264"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        @foreach ($projects as $index=>$project)
             <div wire:key="{{$project->id}}" class="col-lg-3 col-md-6 col-12 mb-3 p-2">
                 <a href="{{route('space.show',$project->id)}}" wire:navigate class="text-decoration-none">
                     <div class="card_block p-3 rounded-3">
@@ -52,19 +50,18 @@
                     </div>
                 </a>
             </div>
-            <div wire:key="{{$project->id}}_ad" class="col-lg-3 col-md-6 col-12 mb-3 p-2">
-                <div class="">
-                    <script async
-                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
+            @if($index % 2 == 0 )
+                <div class="col-lg-3 col-md-6 col-12 mb-3 p-2">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
                         crossorigin="anonymous"></script>
                     <!-- blog-card -->
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1618114950811949"
-                        data-ad-slot="2713233795" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1618114950811949" data-ad-slot="2713233795"
+                        data-ad-format="auto" data-full-width-responsive="true"></ins>
                     <script>
                         (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
-            </div>
+            @endif
         @endforeach
     </div>
     @else
