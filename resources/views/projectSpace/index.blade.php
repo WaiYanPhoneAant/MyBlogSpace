@@ -31,6 +31,7 @@
                 <livewire:project-cards>
             </div>
         </section>
+        
     </div>
     <script>
         let slideIndex = 0;

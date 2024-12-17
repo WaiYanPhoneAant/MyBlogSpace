@@ -1,5 +1,4 @@
-
-<div class="row   justify-content-center align-items-center ">
+<div class="row justify-content-center align-items-center">
     @if ($loading==true)
         <x-cardloading></x-cardloading>
     @endif
@@ -24,7 +23,7 @@
                             <h2 class="card_title pt-1 text-dark fw-semibold mb-1">{{$project->title}}</h2>
                             {{-- <span class="card_description text-muted mt-0 ">{{$project->title }}</span> --}}
                         </div>
-                        <div class="project_detail  text-muted">
+                        <div class="project_detail text-muted">
                             <h4 class="text mb-2"><i class="fa-solid fa-earth"></i> Publish Date : <span>{{$project->created_at}}</span></h4>
                             {{-- <h4 class="text ">Tech Stack : <span>{{$project->tech_stack}}</span></h4> --}}
                         </div>
@@ -44,8 +43,45 @@
                                         class="fa-solid fa-eye"></i>
                                     Read</a>
                             @endif
-                            <a class="btn btn-sm shadow-sm" href="{{$project->preview_url ?? '#'}}" target="__blank"><i class="fa-solid fa-share text-primary"></i>
-                                Share</a>
+                            {{-- <a class="btn btn-sm shadow-sm" href="{{$project->preview_url ?? '#'}}" target="__blank"><i class="fa-solid fa-share text-primary"></i>
+                                Share</a> --}}
+
+                        <button class="btn btn-sm shadow-sm" data-bs-toggle="modal" data-bs-target="#shareModal{{$project->id}}">
+                            <i class="fa-solid fa-share text-primary"></i> Share
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade " id="shareModal{{$project->id}}" tabindex="-1" aria-labelledby="shareModalLabel{{$project->id}}" aria-hidden="true">
+                            <div class="modal-dialog" style="max-width: 250px;">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title" id="shareModalLabel{{$project->id}}">Share On</h6>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="d-flex justify-content-center gap-1">
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('space.show', $project->id) }}" target="_blank" class="btn btn-primary">
+                                                <i class="fa-brands fa-facebook-f"></i>
+                                            </a>
+                                            <a href="https://twitter.com/intent/tweet?url={{ route('space.show', $project->id) }}" target="_blank" class="btn btn-dark text-white">
+                                                {{-- <i class="fa-brands fa-x-twitter text-white"></i> --}}
+                                                 X
+                                            </a>
+                                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ route('space.show', $project->id) }}" target="_blank" class="btn btn-primary">
+                                                <i class="fa-brands fa-linkedin-in"></i>
+                                            </a>
+                                        </div>
+                                        <div class="mt-3 input-group input-group-sm">
+                                            <input type="text" class="form-control form-control-sm outline-none " style="outline: none" value="{{ route('space.show', $project->id) }}" id="projectLink{{$project->id}}" readonly>
+                                            <button class="btn btn-secondary input-group-text" id="copyButton{{$project->id}}" onclick="copyLink({{$project->id}})">
+                                                <i class="fa-solid fa-copy" id="copyIcon{{$project->id}}"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         </div>
                     </div>
                 </a>
@@ -72,4 +108,9 @@
         <div class="d-flex justify-content-center">{{$projects->links()}}</div>
     </div>
 </div>
+
+<script>
+
+</script>
+
 
