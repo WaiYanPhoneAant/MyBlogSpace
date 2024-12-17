@@ -51,8 +51,8 @@
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade " id="shareModal{{$project->id}}" tabindex="-1" aria-labelledby="shareModalLabel{{$project->id}}" aria-hidden="true">
-                            <div class="modal-dialog" style="max-width: 250px;">
+                        <div class="modal fade m-auto" id="shareModal{{$project->id}}" tabindex="-1" aria-labelledby="shareModalLabel{{$project->id}}" aria-hidden="true">
+                            <div class="modal-dialog m-auto p-2" style="-width: 250px;">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h6 class="modal-title" id="shareModalLabel{{$project->id}}">Share On</h6>
