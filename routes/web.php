@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\projectSpaceController;
-use App\Jobs\GenerateAIContent;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,15 +15,14 @@ use App\Jobs\GenerateAIContent;
 */
 
 Route::get('/', function () {
-    return redirect('/space');
+    // return redirect('/space');
 });
-
-Route::resource('/space', projectSpaceController::class);
-
+Route::controller(projectSpaceController::class)->group(function () {
+    Route::get('/', [projectSpaceController::class, 'index'])->name('space.index');
+    Route::get('/{slug}', [projectSpaceController::class, 'show'])->name('space.show');
+})->name('space');
+// Route::resource('/', projectSpaceController::class)->names('space');
 Route::get('/generate-ai-content', function () {
-    // GenerateAIContent::dispatch( 'What is php?');
-    // GenerateAIContent::dispatch( 'Today Tranding Weather News');
-    // GenerateAIContent::dispatch( 'Today Current Crypto');
     return 'AI content generation job dispatched!';
 });
 

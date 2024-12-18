@@ -29,7 +29,7 @@
 <body>
     <div class=" p-0">
         <div class="">{{$slot}}</div>
-        <footer class="bg-dark text-white text-center py-3 mt-4 bottom-0 w-100">
+        <footer class="bg-dark text-white text-center py-3 mt-4 bottom-0 w-100" wire:ignore>
             <div class="container">
                 <p>&copy; {{ date('Y') }} MyVerse. All rights reserved.</p>
                 <p>Follow us on:
