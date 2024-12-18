@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Post;
 use App\Models\project;
 use Livewire\Component;
 use Livewire\Attributes\On;
@@ -26,10 +27,10 @@ class ProjectCards extends Component
     }
     public function render()
     {
-        $projects = project::when($this->keyword, function ($q) {
-            $q->where("name", 'LIKE', "%{$this->keyword}%");
-        })->paginate(30);
+        $posts = Post::when($this->keyword, function ($q) {
+            $q->where("title", 'LIKE', "%{$this->keyword}%");
+        })->OrderBy('id', 'DESC')->paginate(30);
         $this->loading = false;
-        return view('livewire.project-cards', compact('projects'));
+        return view('livewire.project-cards', compact('posts'));
     }
 }

@@ -33,9 +33,10 @@ class projectSpaceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        return view('projectSpace.view',compact('id'));
+
+        return view('projectSpace.view',compact('slug'));
     }
 
     /**

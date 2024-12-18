@@ -1,12 +1,12 @@
 <x-layout :style='asset("css/mySpace/view.css")' wire:key='view'>
-    <div class="container-fluid p-0">
-        <section class="w-auto  hero_section shadow-sm p-1 ">
+    <div class="container-fluid p-0" wire:ignore.self>
+        <section class="w-auto  hero_section shadow-sm p-1 " wire:ignore>
             <nav class="container d-flex justify-content-between  fw-bold p-2">
                 <div class="logo text-dark">Source Code</div>
                 <div class="link  text-dark">wypa.dev</div>
             </nav>
         </section>
-        <livewire:project-view :id='$id' lazy />
+        <livewire:project-view :slug='$slug' lazy />
         <section class="d-none">
             <div class="container  mt-5">
                 <div class="col-10  m-auto d-flex gap-1">

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\projectSpaceController;
+use App\Jobs\GenerateAIContent;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,11 @@ Route::get('/', function () {
 });
 
 Route::resource('/space', projectSpaceController::class);
+
+Route::get('/generate-ai-content', function () {
+    // GenerateAIContent::dispatch( 'What is php?');
+    // GenerateAIContent::dispatch( 'Today Tranding Weather News');
+    // GenerateAIContent::dispatch( 'Today Current Crypto');
+    return 'AI content generation job dispatched!';
+});
+

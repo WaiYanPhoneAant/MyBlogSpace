@@ -5,7 +5,7 @@
     <div class="" wire:loading>
         <x-cardloading></x-cardloading>
     </div>
-    @if (count($projects)>0)
+    @if (count($posts)>0)
     <div class="col-12 row justify-content-center align-items-center" wire:loading.remove>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
             crossorigin="anonymous"></script>
@@ -14,67 +14,70 @@
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-        @foreach ($projects as $index=>$project)
-            <div wire:key="{{$project->id}}" class="col-lg-3 col-md-6 col-12 mb-3 p-2">
-                <a href="{{route('space.show',$project->id)}}" wire:navigate class="text-decoration-none">
+        @foreach ($posts as $index=>$post)
+            <div wire:key="{{$post->id}}" class="col-lg-3 col-md-6 col-12 mb-3 p-2 post-card">
+                <a href="{{route('space.show',$post->slug)}}" wire:navigate class="text-decoration-none">
                     <div class="card_block p-3 rounded-3">
-                        <div class="card-bg col-12" style="background-image: url({{asset('/background/bg2.jpg')}})"></div>
+                        @if($post->featured_image)
+                        <div class="card-bg col-12" style="background-image: url({{asset($post->featured_image)}})"></div>
+                        @endif
                         <div class="d-flex flex-column align-items-start mt-3">
-                            <h2 class="card_title pt-1 text-dark fw-semibold mb-1">{{$project->title}}</h2>
-                            {{-- <span class="card_description text-muted mt-0 ">{{$project->title }}</span> --}}
+                            <h2 class="card_title roboto-thin pt-1 text-dark  mb-1 post=card-title">{{$post->title}}</h2>
                         </div>
                         <div class="project_detail text-muted">
-                            <h4 class="text mb-2"><i class="fa-solid fa-earth"></i> Publish Date : <span>{{$project->created_at}}</span></h4>
-                            {{-- <h4 class="text ">Tech Stack : <span>{{$project->tech_stack}}</span></h4> --}}
+                            <h4 class="text mb-2"><i class="fa-solid fa-earth"></i>
+                                {{-- Publish Date : --}}
+                                 <span>{{$post->published_at}}</span></h4>
+                            {{-- <h4 class="text ">Tech Stack : <span>{{$post->tech_stack}}</span></h4> --}}
                         </div>
                         <div class="card_summary mt-3">
                             <p>
-                               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aliquid est accusantium, enim fugiat totam corrupti ea quasi unde? Quo!
+                                {!! $post->excerpt !!}
                             </p>
                         </div>
 
                         <div class="project_detail mt-3 text-muted">
-                            @if ($project->visibility=='private')
+                            @if ($post->visibility=='private')
                                 <button class="btn btn-sm shadow-sm bg-light-danger text-white"><i class="fa-solid fa-lock"></i>
                                     Private
                                 </button>
                             @else
-                                <a class="btn btn-sm shadow-sm" href="{{$project->source_code_url ?? '#'}}" target="__blank"><i
+                                <a class="btn btn-sm shadow-sm" href="{{route('space.show',$post->slug)}}" target="__blank"><i
                                         class="fa-solid fa-eye"></i>
                                     Read</a>
                             @endif
-                            {{-- <a class="btn btn-sm shadow-sm" href="{{$project->preview_url ?? '#'}}" target="__blank"><i class="fa-solid fa-share text-primary"></i>
+                            {{-- <a class="btn btn-sm shadow-sm" href="{{$post->preview_url ?? '#'}}" target="__blank"><i class="fa-solid fa-share text-primary"></i>
                                 Share</a> --}}
 
-                        <button class="btn btn-sm shadow-sm" data-bs-toggle="modal" data-bs-target="#shareModal{{$project->id}}">
+                        <button class="btn btn-sm shadow-sm" data-bs-toggle="modal" data-bs-target="#shareModal{{$post->id}}">
                             <i class="fa-solid fa-share text-primary"></i> Share
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade m-auto" id="shareModal{{$project->id}}" tabindex="-1" aria-labelledby="shareModalLabel{{$project->id}}" aria-hidden="true">
+                        <div class="modal fade m-auto" id="shareModal{{$post->id}}" tabindex="-1" aria-labelledby="shareModalLabel{{$post->id}}" aria-hidden="true">
                             <div class="modal-dialog m-auto p-2" style="-width: 250px;">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h6 class="modal-title" id="shareModalLabel{{$project->id}}">Share On</h6>
+                                        <h6 class="modal-title" id="shareModalLabel{{$post->id}}">Share On</h6>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="d-flex justify-content-center gap-1">
-                                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('space.show', $project->id) }}" target="_blank" class="btn btn-primary">
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('space.show', $post->slug) }}" target="_blank" class="btn btn-primary">
                                                 <i class="fa-brands fa-facebook-f"></i>
                                             </a>
-                                            <a href="https://twitter.com/intent/tweet?url={{ route('space.show', $project->id) }}" target="_blank" class="btn btn-dark text-white">
+                                            <a href="https://twitter.com/intent/tweet?url={{ route('space.show', $post->slug) }}" target="_blank" class="btn btn-dark text-white">
                                                 {{-- <i class="fa-brands fa-x-twitter text-white"></i> --}}
                                                  X
                                             </a>
-                                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ route('space.show', $project->id) }}" target="_blank" class="btn btn-primary">
+                                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ route('space.show', $post->slug) }}" target="_blank" class="btn btn-primary">
                                                 <i class="fa-brands fa-linkedin-in"></i>
                                             </a>
                                         </div>
                                         <div class="mt-3 input-group input-group-sm">
-                                            <input type="text" class="form-control form-control-sm outline-none " style="outline: none" value="{{ route('space.show', $project->id) }}" id="projectLink{{$project->id}}" readonly>
-                                            <button class="btn btn-secondary input-group-text" id="copyButton{{$project->id}}" onclick="copyLink({{$project->id}})">
-                                                <i class="fa-solid fa-copy" id="copyIcon{{$project->id}}"></i>
+                                            <input type="text" class="form-control form-control-sm outline-none " style="outline: none" value="{{ route('space.show', $post->slug) }}" id="projectLink{{$post->id}}" readonly>
+                                            <button class="btn btn-secondary input-group-text" id="copyButton{{$post->id}}" onclick="copyLink({{$post->id}})">
+                                                <i class="fa-solid fa-copy" id="copyIcon{{$post->id}}"></i>
                                             </button>
                                         </div>
                                     </div>
@@ -86,7 +89,7 @@
                     </div>
                 </a>
             </div>
-            @if($index % 2 == 0 )
+            @if($index % 10 == 0 && $index!=0)
                 <div class="col-lg-3 col-md-6 col-12 mb-3 p-2">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
                         crossorigin="anonymous"></script>
@@ -105,7 +108,7 @@
     @endif
 
     <div class="">
-        <div class="d-flex justify-content-center">{{$projects->links()}}</div>
+        <div class="d-flex justify-content-center">{{$posts->links()}}</div>
     </div>
 </div>
 

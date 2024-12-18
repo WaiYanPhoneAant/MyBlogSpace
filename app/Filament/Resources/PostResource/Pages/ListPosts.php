@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources\PostResource\Pages;
 
-use App\Filament\Resources\PostResource;
 use Filament\Actions;
+use Filament\Resources\Components\Tab;
+use App\Filament\Resources\PostResource;
 use Filament\Resources\Pages\ListRecords;
+use Illuminate\Database\Eloquent\Builder;
 
 class ListPosts extends ListRecords
 {
@@ -16,4 +18,17 @@ class ListPosts extends ListRecords
             Actions\CreateAction::make(),
         ];
     }
+        public function getTabs(): array
+{
+    return [
+        'all' => Tab::make(),
+
+        'Published' => Tab::make()
+            ->modifyQueryUsing(fn (Builder $query) => $query->where('status', 'published')),
+        'Draft' => Tab::make()
+            ->modifyQueryUsing(fn (Builder $query): Builder => $query->where('status', 'draft')),
+        'Archived' => Tab::make()
+            ->modifyQueryUsing(fn (Builder $query) => $query->where('status', 'archived')),
+    ];
+}
 }
