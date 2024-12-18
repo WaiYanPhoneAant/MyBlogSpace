@@ -4,7 +4,7 @@ section {
 
 .container-fluid {
     background-color: #fdfdfd;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .date {

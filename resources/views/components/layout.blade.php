@@ -27,7 +27,19 @@
         crossorigin="anonymous"></script>
 </head>
 <body>
-{{$slot}}
+    <div class=" p-0">
+        <div class="">{{$slot}}</div>
+        <footer class="bg-dark text-white text-center py-3 mt-4 bottom-0 w-100">
+            <div class="container">
+                <p>&copy; {{ date('Y') }} MyVerse. All rights reserved.</p>
+                <p>Follow us on:
+                    <a href="#" class="text-white mx-2">Facebook</a>
+                    <a href="#" class="text-white mx-2">Twitter</a>
+                    <a href="#" class="text-white mx-2">Instagram</a>
+                </p>
+            </div>
+        </footer>
+    </div>
 </body>
 @livewireScripts
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -52,4 +64,5 @@
         });
     }
     </script>
+
 </html>

@@ -28,7 +28,7 @@ class GenerateAIContent implements ShouldQueue
         // Simulate AI content generation
         $generatedContent = "Generated AI Content: " . $this->content;
 
-        $prompt = "Generate a blog post about (You can separate Paragraph line brank to visuliaze tag and add header if exist with html tag like <b></b> <i></i> or other tags): ";
+        $prompt = "Generate a blog post about (You can separate Paragraph line brank to visuliaze tag and add header if exist with foramt in RichEditor format): ";
 
         $yourApiKey = getenv('openai_key');
         $client = OpenAI::client($yourApiKey);

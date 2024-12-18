@@ -2,7 +2,7 @@
 
 .container-fluid {
     background-color: #fdfdfd;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .body {
@@ -72,6 +72,11 @@
     font-weight: bold;
 }
 
+.mini-nav {
+    background-color: rgba(255, 255, 255, 0.74) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+}
 .showcase {
     padding-top: 50px;
     height: auto;
@@ -117,6 +122,7 @@
     height: 50px;
     overflow: hidden;
 }
+
 
 .badge {
     font-size: 10px;

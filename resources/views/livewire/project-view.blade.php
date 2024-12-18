@@ -1,11 +1,18 @@
 <section class="mt-1">
     <div class="container  mt-5">
-        <div class="col-10 m-auto mb-3">
+        <div class="col-md-10 m-auto mb-3">
             <a wire:navigate href="{{route('space.index')}}" class="btn btn-outline-secondary btn-sm">
               <i class="fa-solid fa-arrow-left"></i>  back
             </a>
         </div>
-        <div class="col-7  m-auto d-flex gap-2">
+
+        <div class="col-md-7">
+            {{-- <div class=" col-12" style="background-image: url({{asset($post->featured_image)}})">
+
+            </div> --}}
+            {{-- <img src="{{asset($post->featured_image)}}" alt=""> --}}
+        </div>
+        <div class="col-md-7  m-auto d-flex gap-2">
             {{-- <div class="card_img  bg-light">
                 <img src="https://preview.keenthemes.com/metronic8/demo38/assets/media/svg/brand-logos/xing-icon.svg"
                     class="w-100 p-3" alt="">
@@ -31,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-7 mt-5 m-auto">
+        <div class="col-md-7 mt-5 m-auto">
             <div class="">
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
                     crossorigin="anonymous"></script>

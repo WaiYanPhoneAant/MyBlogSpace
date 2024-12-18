@@ -117,6 +117,7 @@ class PostResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->poll('1s')
             ->headerActions([
                 Action::make('Generate Using Ai')
                     ->form([

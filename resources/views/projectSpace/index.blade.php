@@ -26,13 +26,14 @@
                 <span class="dot" onclick="currentSlide(3)"></span>
             </div>
         </section>
-        <section class="showcase pt-10">
+        <section class="showcase pt-10 h-auto">
             <div class="container-fluid px-md-3 px-lg-5">
                 <livewire:project-cards>
             </div>
         </section>
 
     </div>
+
     <script>
         var slideIndex = 0;
         var slides = [

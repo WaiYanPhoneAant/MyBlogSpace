@@ -1,9 +1,9 @@
 <x-layout :style='asset("css/mySpace/view.css")' wire:key='view'>
     <div class="container-fluid p-0" wire:ignore.self>
-        <section class="w-auto  hero_section shadow-sm p-1 " wire:ignore>
+        <section class="w-auto   shadow-sm p-1 mini-nav" wire:ignore>
             <nav class="container d-flex justify-content-between  fw-bold p-2">
-                <div class="logo text-dark">Source Code</div>
-                <div class="link  text-dark">wypa.dev</div>
+                <div class="logo text-dark">Blog</div>
+                <div class="link  text-dark">By Verse</div>
             </nav>
         </section>
         <livewire:project-view :slug='$slug' lazy />
