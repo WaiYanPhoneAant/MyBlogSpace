@@ -4,7 +4,6 @@
             <a wire:navigate href="{{route('space.index')}}" class="btn btn-outline-secondary btn-sm">
               <i class="fa-solid fa-arrow-left"></i>  back
             </a>
-        </div>
 
         <div class="col-md-7  m-auto d-flex gap-2 ">
             {{-- <div class="card_img  bg-light">
@@ -12,9 +11,51 @@
                     class="w-100 p-3" alt="">
             </div> --}}
             <div class="mt-1 w-100 d-flex justify-content-between">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <h1 class="view-title pt-0 mb-0 pb-0">{{$post->title}}</h1>
                     <span class="date fw-semibold"><i class="fa-solid fa-earth me-2 text-muted"></i>{{$post->published_at}}</span>
+                </div>
+                <div class="col-md-6 text-end project_detail mt-3 text-muted">
+                    <button class="btn btn-sm shadow-sm" data-bs-toggle="modal" data-bs-target="#shareModal{{$post->id}}">
+                        <i class="fa-solid fa-share text-primary"></i> Share
+                    </button>
+                    <div class="modal fade m-auto" id="shareModal{{$post->id}}" tabindex="-1"
+                        aria-labelledby="shareModalLabel{{$post->id}}" aria-hidden="true">
+                        <div class="modal-dialog m-auto p-2" style="-width: 250px;">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title" id="shareModalLabel{{$post->id}}">Share On</h6>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="d-flex justify-content-center gap-1">
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('space.show', $post->slug) }}"
+                                            target="_blank" class="btn btn-primary">
+                                            <i class="fa-brands fa-facebook-f"></i>
+                                        </a>
+                                        <a href="https://twitter.com/intent/tweet?url={{ route('space.show', $post->slug) }}"
+                                            target="_blank" class="btn btn-dark text-white">
+                                            {{-- <i class="fa-brands fa-x-twitter text-white"></i> --}}
+                                            X
+                                        </a>
+                                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ route('space.show', $post->slug) }}"
+                                            target="_blank" class="btn btn-primary">
+                                            <i class="fa-brands fa-linkedin-in"></i>
+                                        </a>
+                                    </div>
+                                    <div class="mt-3 input-group input-group-sm">
+                                        <input type="text" class="form-control form-control-sm outline-none " style="outline: none"
+                                            value="{{ route('space.show', $post->slug) }}" id="projectLink{{$post->id}}" readonly>
+                                        <button class="btn btn-secondary input-group-text" id="copyButton{{$post->id}}"
+                                            onclick="copyLink({{$post->id}})">
+                                            <i class="fa-solid fa-copy" id="copyIcon{{$post->id}}"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
