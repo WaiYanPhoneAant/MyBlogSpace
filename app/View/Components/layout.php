@@ -12,6 +12,8 @@ class layout extends Component
      * Create a new component instance.
      */
     public $style;
+    public $title;
+    public $description;
     public function __construct($style)
     {
        $this->style=$style;

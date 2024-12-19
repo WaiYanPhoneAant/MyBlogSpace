@@ -91,7 +91,15 @@ class PostResource extends Resource
                 ->required()
                 ->maxLength(255)
                 ->live(true, debounce: 600)
-                ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
+                ->afterStateUpdated(function (Set $set, ?string $state) {
+                    $slug = Str::slug($state);
+                    $uniqueSlug = $slug;
+                    $counter = 1;
+                    while (Post::where('slug', $uniqueSlug)->exists()) {
+                        $uniqueSlug = $slug . '-' . $counter++;
+                    }
+                    $set('slug', $uniqueSlug);
+                }),
             TextInput::make('slug')
                 ->required()
                 ->readOnly(),

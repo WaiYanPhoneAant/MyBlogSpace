@@ -1,4 +1,4 @@
-<x-layout :style='asset("css/mySpace/view.css")' wire:key='view'>
+<x-layout :style='asset("css/mySpace/view.css")' wire:key='view' :title='$slug' :description='$slug'>
     <div class="container-fluid p-0" wire:ignore.self>
         <section class="w-auto   shadow-sm p-1 mini-nav" wire:ignore>
             <nav class="container d-flex justify-content-between  fw-bold p-2">

@@ -41,6 +41,12 @@ class GenerateAIContent implements ShouldQueue
 
         $generatedContent = $result->choices[0]->message->content;
 
+        $slug = Str::slug($this->content);
+        $uniqueSlug = $slug;
+        $counter = 1;
+        while (Post::where('slug', $uniqueSlug)->exists()) {
+            $uniqueSlug = $slug . '-' . $counter++;
+        }
         // Store generated content to database
         Post::create([
             'title' => $this->content,
@@ -49,7 +55,7 @@ class GenerateAIContent implements ShouldQueue
             'excerpt' => substr( $generatedContent, 0, 100),
             'published_at' => now(),
             'user_id' => 1,
-            'slug' => Str::slug($this->content. '-' .uniqid()),
+            'slug' => $uniqueSlug,
         ]);
         logger('g');
         JobProcessed::dispatch('JobProcessed');
