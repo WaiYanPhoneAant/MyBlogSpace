@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 Route::controller(projectSpaceController::class)->group(function () {
     Route::get('/', [projectSpaceController::class, 'index'])->name('space.index');
-    Route::get('/{slug}', [projectSpaceController::class, 'show'])->name('space.show');
+    Route::get('.blog/{slug}', [projectSpaceController::class, 'show'])->name('space.show');
 })->name('space');
 // Route::resource('/', projectSpaceController::class)->names('space');
 Route::get('/generate-ai-content', function () {
