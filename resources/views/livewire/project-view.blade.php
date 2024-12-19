@@ -19,18 +19,13 @@
             </div>
         </div>
         <div class="col-md-7 m-auto text-center mb-5"><hr class="my-4" style="border-top: 1px solid #888787;"></div>
+        @if($post->featured_image)
         <div class="col-md-7 m-auto">
             <div class="feature-image-div text-center p-5">
                 <img class="img-fluid rounded" src="{{asset($post->featured_image)}}" alt="">
             </div>
         </div>
-        <div class="col-10  m-auto d-flex gap-1">
-            <div class="mt-4 w-100 d-flex justify-content-between">
-                <div class="project_detail mt-3 text-muted">
-
-                </div>
-            </div>
-        </div>
+        @endif
         <div class="col-md-7 mt-5 m-auto">
             <div class="">
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
