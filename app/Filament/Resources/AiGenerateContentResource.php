@@ -13,8 +13,10 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\AiGenerateContentResource\Pages;
 use App\Filament\Resources\AiGenerateContentResource\RelationManagers;
+use App\Filament\Resources\AiGenerateContentResource\Widgets\FailedJobOverview;
 use Faker\Provider\ar_EG\Text;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class AiGenerateContentResource extends Resource
 {
@@ -87,4 +89,12 @@ class AiGenerateContentResource extends Resource
             // 'edit' => Pages\EditAiGenerateContent::route('/{record}/edit'),
         ];
     }
+
+        public static function getWidgets(): array
+    {
+        return [
+            FailedJobOverview::class,
+        ];
+    }
+
 }

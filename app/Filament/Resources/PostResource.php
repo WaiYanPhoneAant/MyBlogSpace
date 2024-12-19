@@ -23,6 +23,7 @@ use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 
 use Filament\Forms\Components\Actions;
+use Filament\Forms\Components\Repeater;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
@@ -39,6 +40,7 @@ use Filament\Forms\Components\ToggleButtons;
 use App\Filament\Resources\PostResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PostResource\RelationManagers;
+use App\Filament\Resources\PostResource\Widgets\PostOverview;
 
 class PostResource extends Resource
 {
@@ -133,27 +135,23 @@ class PostResource extends Resource
             ->headerActions([
                 Action::make('Generate Using Ai')
                     ->form([
-                        TextInput::make('topic')->label('Topic Name')
+                        Repeater::make('topics')
+                        ->schema([
+                            TextInput::make('title')->label('Topic Name')
                             ->required()
+                        ])->required(true)
+
                     ])
                     ->action(function (array $data, Post $post, Set $set) {
-                            $topic = $data['topic'];
-                        //     $yourApiKey = getenv('openai_key');
-                        //     $client = OpenAI::client($yourApiKey);
-                        //     $prompt = "Generate a blog post about (You can separate Paragraph and add header if exist): ";
-                        //     $result = $client->chat()->create([
-                        //         'model' => 'gpt-4',
-                        //         'messages' => [
-                        //             ['role' => 'user', 'content' => $prompt . $topic],
-                        //         ],
-                        //     ]);
-                        // $content = $result->choices[0]->message->content;
-                        logger('here');
-                        GenerateAIContent::dispatch(  $data['topic']);
-                        Notification::make()
-                        ->title('Sent to queue. Post will generate within a minute.')
-                            ->success()
-                            ->send();
+                       foreach ($data['topics'] as $topic) {
+                            $topic = $topic['title'];
+                            GenerateAIContent::dispatch($topic);
+                            Notification::make()
+                            ->title('Sent " '.$topic.' " to queue. Post will generate within a minute.')
+                                ->success()
+                                ->send();
+                       }
+
                     }),
             ])
             ->defaultSort('id', 'desc')
@@ -204,6 +202,12 @@ class PostResource extends Resource
             'index' => Pages\ListPosts::route('/'),
             'create' => Pages\CreatePost::route('/create'),
             'edit' => Pages\EditPost::route('/{record}/edit'),
+        ];
+    }
+    public static function getWidgets(): array
+    {
+        return [
+            PostOverview::class,
         ];
     }
 }
