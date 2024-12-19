@@ -13,6 +13,7 @@ class Post extends Model
         'title',
         'content',
         'excerpt',
+        'status',
         'published_at',
     ];
 

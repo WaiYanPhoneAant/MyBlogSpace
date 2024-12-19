@@ -44,6 +44,7 @@ class GenerateAIContent implements ShouldQueue
         // Store generated content to database
         Post::create([
             'title' => $this->content,
+            'status'=> 'published',
             'content' => $generatedContent,
             'excerpt' => substr( $generatedContent, 0, 100),
             'published_at' => now(),

@@ -12,18 +12,18 @@
             </header>
             <livewire:projectsearch></livewire:projectsearch>
             <div class="col-10 m-auto tags d-flex text-center justify-content-start mt-2 mb-2 gap-lg-4 gap-2 overflow-x-auto justify-content-md-center" wire:ignore style="scrollbar-width: none; -ms-overflow-style: none;">
-                <div class="shadow-sm p-1 tag px-3">All</div>
-                <div class="shadow-sm p-1 tag px-3">Tech</div>
-                <div class="shadow-sm p-1 tag px-3">Home</div>
-                <div class="shadow-sm p-1 tag px-3">DIY</div>
-                <div class="shadow-sm p-1 tag px-3">Novels</div>
-                <div class="shadow-sm p-1 tag px-3">Knowledges</div>
-                <div class="shadow-sm p-1 tag px-3">Entertainment</div>
+                <button class="btn shadow-sm p-1 tag px-3">All</button>
+                <button class="btn shadow-sm p-1 tag px-3">Tech</button>
+                <button class="btn shadow-sm p-1 tag px-3">Home</button>
+                <button class="btn shadow-sm p-1 tag px-3">DIY</button>
+                <button class="btn shadow-sm p-1 tag px-3">Novels</button>
+                <button class="btn shadow-sm p-1 tag px-3">Knowledges</button>
+                <button class="btn shadow-sm p-1 tag px-3">Entertainment</button>
             </div>
             <div class="slider-dots text-center mt-2">
                 <span class="dot" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
+                {{-- <span class="dot" onclick="currentSlide(3)"></span> --}}
             </div>
         </section>
         <section class="showcase pt-10 h-auto">
@@ -39,7 +39,7 @@
         var slides = [
             "{{ asset('/background/bg.jpg') }}",
             "{{ asset('/background/bg2.jpg') }}",
-            "{{ asset('/background/bg3.jpg') }}"
+            // "{{ asset('/background/bg3.jpg') }}"
         ];
 
         function showSlides() {

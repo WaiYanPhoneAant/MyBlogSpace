@@ -15,17 +15,21 @@ use Livewire\Attributes\On;
 use Faker\Provider\ar_EG\Text;
 use App\Jobs\GenerateAIContent;
 use Filament\Resources\Resource;
+use Filament\Actions\DeleteAction;
 use Illuminate\Support\HtmlString;
 use Filament\Forms\Components\Grid;
 use Filament\Tables\Actions\Action;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Actions;
 
+use Filament\Forms\Components\Actions;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ViewField;
 use Filament\Notifications\Notification;
+use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
@@ -156,7 +160,7 @@ class PostResource extends Resource
                         'published' => 'Published',
                         'archived' => 'Archived',
                     ])
-                    ->default('draft')
+                    ->default('published')
                     ->sortable()
                     ->searchable()
                     ->selectablePlaceholder(false),
@@ -166,7 +170,11 @@ class PostResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                ActionGroup::make([
+                    EditAction::make(),
+                    ViewAction::make(),
+                    DeleteAction::make(),
+                ])->button()->label('Actions'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

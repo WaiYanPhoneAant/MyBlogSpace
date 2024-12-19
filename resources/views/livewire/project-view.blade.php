@@ -6,29 +6,22 @@
             </a>
         </div>
 
-        <div class="col-md-7">
-            {{-- <div class=" col-12" style="background-image: url({{asset($post->featured_image)}})">
-
-            </div> --}}
-            {{-- <img src="{{asset($post->featured_image)}}" alt=""> --}}
-        </div>
-        <div class="col-md-7  m-auto d-flex gap-2">
+        <div class="col-md-7  m-auto d-flex gap-2 ">
             {{-- <div class="card_img  bg-light">
                 <img src="https://preview.keenthemes.com/metronic8/demo38/assets/media/svg/brand-logos/xing-icon.svg"
                     class="w-100 p-3" alt="">
             </div> --}}
             <div class="mt-1 w-100 d-flex justify-content-between">
-                <div class="col-6">
-                    <div class="fw-bold fs-5 mb-0 pb-0">{{$post->title}}</div>
+                <div class="col-md-12">
+                    <h1 class="view-title pt-0 mb-0 pb-0">{{$post->title}}</h1>
                     <span class="date fw-semibold"><i class="fa-solid fa-earth me-2 text-muted"></i>{{$post->published_at}}</span>
                 </div>
-                {{-- <div class="col-6 tech-stack d-flex gap-2 justify-content-end text-end">
-                    <i class="fa-brands fa-html5 fs-5"></i>
-                    <i class="fa-brands fa-css3 fs-5"></i>
-                    <i class="fa-brands fa-php fs-5"></i>
-                    <i class="fa-brands fa-laravel fs-5"></i>
-                    <i class="fa-brands fa-js-square fs-5"></i>
-                </div> --}}
+            </div>
+        </div>
+        <div class="col-md-7 m-auto text-center mb-5"><hr class="my-4" style="border-top: 1px solid #888787;"></div>
+        <div class="col-md-7 m-auto">
+            <div class="feature-image-div text-center p-5">
+                <img class="img-fluid rounded" src="{{asset($post->featured_image)}}" alt="">
             </div>
         </div>
         <div class="col-10  m-auto d-flex gap-1">
@@ -48,8 +41,7 @@
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
             </div>
-            <p class="text-muted">
-
+            <p class="mt-3" style="color: rgba(0, 0, 0, 0.852);">
                 {!! nl2br($post->content) !!}
             </p>
         </div>

@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\ProjectResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ProjectResource\RelationManagers;
+use Filament\Actions\DeleteAction;
 
 class ProjectResource extends Resource
 {
@@ -77,6 +78,7 @@ class ProjectResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
