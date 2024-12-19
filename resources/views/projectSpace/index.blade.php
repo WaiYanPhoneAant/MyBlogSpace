@@ -23,7 +23,6 @@
             <div class="slider-dots text-center mt-2">
                 <span class="dot" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
-                {{-- <span class="dot" onclick="currentSlide(3)"></span> --}}
             </div>
         </section>
         <section class="showcase pt-10 h-auto">

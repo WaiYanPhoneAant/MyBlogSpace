@@ -2,9 +2,6 @@
     @if ($loading==true)
         <x-cardloading></x-cardloading>
     @endif
-    <div class="" wire:loading>
-        <x-cardloading></x-cardloading>
-    </div>
     @if (count($posts)>0)
     <div class="col-12 row justify-content-center align-items-center" wire:loading.remove>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-adsense-account" content="ca-pub-1618114950811949">
+    <meta name="description" content="{{$description ?? 'Blog By Verse'}}">
     <title>{{$title ?? 'Blog By Verse'}}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +23,7 @@
     <meta property="og:image" content="{{ asset('background/bg.jpg') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
+    <link rel="canonical" href="{{ url()->current() }}">
     <link rel="stylesheet" href="{{$style}}">
     @livewireStyles
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"

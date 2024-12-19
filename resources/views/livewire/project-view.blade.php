@@ -22,7 +22,7 @@
         @if($post->featured_image)
         <div class="col-md-7 m-auto">
             <div class="feature-image-div text-center p-5">
-                <img class="img-fluid rounded" src="{{asset($post->featured_image)}}" alt="">
+                <img class="img-fluid rounded" alt="{{$post->slug}}" src="{{asset($post->featured_image)}}" alt="">
             </div>
         </div>
         @endif

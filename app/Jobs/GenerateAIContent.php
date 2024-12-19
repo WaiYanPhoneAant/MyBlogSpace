@@ -57,10 +57,7 @@ class GenerateAIContent implements ShouldQueue
             'user_id' => 1,
             'slug' => $uniqueSlug,
         ]);
-        logger('g');
         JobProcessed::dispatch('JobProcessed');
         // $this->dispatch("jobProcessed");
-        logger('processed');
-
     }
 }

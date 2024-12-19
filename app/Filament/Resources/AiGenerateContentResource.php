@@ -19,7 +19,7 @@ use Filament\Tables\Columns\TextColumn;
 class AiGenerateContentResource extends Resource
 {
     protected static ?string $model = Job::class;
-    protected static ?string $navigationLabel = 'Ai-Generation Queue';
+    protected static ?string $navigationLabel = 'AI Generation Queue';
 
     protected static ?string $label = 'Ai-Generate Content Queue';
 

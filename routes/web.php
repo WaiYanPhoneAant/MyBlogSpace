@@ -15,7 +15,7 @@ use App\Http\Controllers\projectSpaceController;
 */
 
 Route::get('/', function () {
-    // return redirect('/space');
+    return redirect('/space');
 });
 Route::controller(projectSpaceController::class)->group(function () {
     Route::get('/', [projectSpaceController::class, 'index'])->name('space.index');
