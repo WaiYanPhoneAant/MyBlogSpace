@@ -27,8 +27,8 @@
         crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class=" p-0">
-        <div class="">{{$slot}}</div>
+    <div class=" p-0" wire:ignore.self>
+        <div class="min-vh-100">{{$slot}}</div>
         <footer class="bg-dark text-white text-center py-3 mt-4 bottom-0 w-100" wire:ignore>
             <div class="container">
                 <p>&copy; {{ date('Y') }} MyVerse. All rights reserved.</p>
