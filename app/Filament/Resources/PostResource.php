@@ -41,6 +41,8 @@ use App\Filament\Resources\PostResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PostResource\RelationManagers;
 use App\Filament\Resources\PostResource\Widgets\PostOverview;
+use App\Models\Category;
+use App\Utiliteis\CategoryUtil;
 
 class PostResource extends Resource
 {
@@ -113,7 +115,19 @@ class PostResource extends Resource
                 ])
                 ->default('draft')
                 ->selectablePlaceholder(false),
-            FileUpload::make('featured_image')->image(),
+
+            Select::make('categories')
+                ->label('Category')
+                ->relationship('categories', 'name')
+                ->searchable()
+                ->multiple()
+                ->getSearchResultsUsing(fn (string $search): array => Category::where('name', 'like', "%{$search}%")
+                ->limit(50)->pluck('name', 'id')
+                ->toArray())
+                 ->getOptionLabelUsing(fn ($value): ?string => Category::find($value)?->name)
+                 ->createOptionForm(CategoryUtil::form()),
+
+            FileUpload::make('featured_image')->image()->columnSpan(2),
             RichEditor::make('content')
                 ->live(debounce: 600)
                 ->columnSpan(2)
@@ -210,5 +224,11 @@ class PostResource extends Resource
         return [
             PostOverview::class,
         ];
+    }
+    protected static function afterCreate(Form $form, Post $post): void
+    {
+        $categories = $form->getState()['categories'] ?? [];
+        dd($categories);
+        $post->categories()->sync($categories);
     }
 }

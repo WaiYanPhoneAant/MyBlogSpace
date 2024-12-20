@@ -16,6 +16,8 @@ class ProjectCards extends Component
     public $keyword = '';
     public $loading = false;
     public $perPage = 30;
+    public $category_id = 'all';
+
     protected $queryString = ['perPage'];
 
     #[On('search')]
@@ -23,6 +25,11 @@ class ProjectCards extends Component
     {
         $this->loading = true;
         $this->keyword = $keyword;
+    }
+    #[On('clickCategory')]
+    public function clickCategory($id='all',$slug="all"): void
+    {
+        $this->category_id = $id;
     }
     public function placeholder()
     {
@@ -33,7 +40,16 @@ class ProjectCards extends Component
         $posts = Post::when($this->keyword, function ($q) {
             $q->where("title", 'LIKE', "%{$this->keyword}%");
         })->OrderBy('published_at', 'DESC')
-            ->where('status','published')->paginate($this->perPage);
+            ->where('status', 'published')
+            ->with('categories')
+            ->when($this->category_id != 'all', function ($q) {
+                $q->whereHas('categories', function ($q) {
+                    if ($this->category_id != 'all') {
+                        $q->where('categories.id', $this->category_id);
+                    }
+                });
+            })
+            ->paginate($this->perPage);
         $this->loading = false;
         return view('livewire.project-cards', compact('posts'));
     }

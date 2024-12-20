@@ -21,9 +21,10 @@
                         <div class="d-flex flex-column align-items-start mt-1">
                             <h2 class="card_title fw-semibold pt-1 text-dark  mb-1 post=card-title" >{{$post->title}}</h2>
                         </div>
+
                         <div class="card_summary mt-2">
                             <p>
-                                {!! trim($post->excerpt,'') !!}
+                                {!! nl2br(trim(Str::limit($post->excerpt, 80, ' .....'),'')) !!}
                             </p>
                         </div>
                         <div class="project_detail text-muted" style="color: rgba(0, 0, 0, 0.562)">
@@ -31,9 +32,17 @@
                                 {{-- Publish Date : --}}
                                 <span>{{ \Carbon\Carbon::parse($post->published_at)->format('F j, Y (g:i A)') }}</span>
                             </h4>
-                            {{-- <h4 class="text ">Tech Stack : <span>{{$post->tech_stack}}</span></h4> --}}
+                            {{-- @foreach ($post->categories as $category)
+                                <h4 class="text "> <span>{{$category->name}}</span></h4>
+                            @endforeach --}}
                         </div>
-
+                        @foreach ($post->categories as $index=>$category)
+                            <span class="badge bg-secondary fw-light badge-info">{{ $category->name }}</span>
+                            @if($index==2)
+                                <span class="badge bg-secondary fw-light badge-info">...</span>
+                                @break
+                            @endif
+                        @endforeach
 
                     </div>
                 </a>

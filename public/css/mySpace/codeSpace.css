@@ -69,9 +69,10 @@
 }
 
 .tags .tag {
-    width: auto;
+    min-width: fit-content;
     border-radius: 10px;
     font-size: 13px;
+    line-break: unset;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -135,13 +136,13 @@
     height: 50px;
     overflow: hidden;
 }
-.project_detail{
+/* .project_detail{
     fonts
-}
+} */
 
-.badge {
+/* .badge {
     font-size: 10px;
-}
+} */
 
 .text {
     font-size: 11px;
