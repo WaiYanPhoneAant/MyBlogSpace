@@ -53,17 +53,17 @@
                         <h4 class="fw-semibold" style="font-size: 18px">Third-Party Sharing :</h4>
                         {{-- <h3 class="fw-semibold">Welcome to Blog By Verse!</h3> --}}
                         <p class="pt-3">
-                            We do not collect personal information, including names, emails, or browsing history.
+                           When you share our content through third-party platforms, their privacy policies will apply.
                         </p>
 
                         <div class="col-12 m-auto text-center mb-5">
                             <hr class="my-4" style="border-top: 1px solid #888787;">
                         </div>
 
-                        <h4 class="fw-semibold" style="font-size: 18px">No Data Collection :</h4>
+                        <h4 class="fw-semibold" style="font-size: 18px">Security :</h4>
                         {{-- <h3 class="fw-semibold">Welcome to Blog By Verse!</h3> --}}
                         <p class="pt-3">
-                            We do not collect personal information, including names, emails, or browsing history.
+                             Since we do not collect data, there is no personal data to secure.
                         </p>
                     </div>
                 </div>
