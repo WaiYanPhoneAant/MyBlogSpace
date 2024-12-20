@@ -22,12 +22,12 @@
                             <h2 class="card_title fw-semibold pt-1 text-dark  mb-1 post=card-title" >{{$post->title}}</h2>
                         </div>
 
-                        <div class="card_summary mt-2">
+                        <div class="card_summary ">
                             <p>
                                 {!! nl2br(trim(Str::limit($post->excerpt, 80, ' .....'),'')) !!}
                             </p>
                         </div>
-                        <div class="project_detail text-muted" style="color: rgba(0, 0, 0, 0.562)">
+                        <div class="project_detail text-muted mt-3" style="color: rgba(0, 0, 0, 0.562)">
                             <h4 class="text mb-2"><i class="fa-solid fa-earth"></i>
                                 {{-- Publish Date : --}}
                                 <span>{{ \Carbon\Carbon::parse($post->published_at)->format('F j, Y (g:i A)') }}</span>
