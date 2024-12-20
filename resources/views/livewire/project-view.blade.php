@@ -13,7 +13,7 @@
             <div class="mt-1 w-100 row d-flex justify-content-between">
                 <div class="col-12">
                     <h1 class="view-title pt-0 mb-0 pb-0">{{$post->title}}</h1>
-                    <span class="date fw-semibold"><i class="fa-solid fa-earth me-2 text-muted"></i>{{$post->published_at}}</span>
+                    <span class="date fw-semibold"><i class="fa-solid fa-earth me-2 text-muted"></i>{{ \Carbon\Carbon::parse($post->published_at)->format('F j, Y (g:i A)') }}</span>
                 </div>
                 <div class="col-12 text-end project_detail mt-3 text-muted">
                     <button class="btn btn-sm shadow-sm" data-bs-toggle="modal" data-bs-target="#shareModal{{$post->id}}">

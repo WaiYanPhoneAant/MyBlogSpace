@@ -29,7 +29,7 @@
                         <div class="project_detail text-muted" style="color: rgba(0, 0, 0, 0.562)">
                             <h4 class="text mb-2"><i class="fa-solid fa-earth"></i>
                                 {{-- Publish Date : --}}
-                                <span>{{ \Carbon\Carbon::parse($post->published_at)->format('F j, Y g:i A') }}</span>
+                                <span>{{ \Carbon\Carbon::parse($post->published_at)->format('F j, Y (g:i A)') }}</span>
                             </h4>
                             {{-- <h4 class="text ">Tech Stack : <span>{{$post->tech_stack}}</span></h4> --}}
                         </div>
