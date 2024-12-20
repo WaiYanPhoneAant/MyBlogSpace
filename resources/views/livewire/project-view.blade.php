@@ -1,5 +1,5 @@
 <section class="mt-1">
-    <div class="container  mt-5">
+    <div class="container  mt-5 px-2">
             <div class="col-md-10 m-auto mb-5">
                 <a wire:navigate href="{{route('space.index')}}" class="btn btn-outline-secondary btn-sm">
                     <i class="fa-solid fa-arrow-left"></i>  back to blog
