@@ -29,7 +29,7 @@ class ProjectCards extends Component
     {
         $posts = Post::when($this->keyword, function ($q) {
             $q->where("title", 'LIKE', "%{$this->keyword}%");
-        })->OrderBy('id', 'DESC')
+        })->OrderBy('published_at', 'DESC')
             ->where('status','published')->paginate(30);
         $this->loading = false;
         return view('livewire.project-cards', compact('posts'));
