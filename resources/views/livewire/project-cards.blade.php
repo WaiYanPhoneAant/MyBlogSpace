@@ -16,7 +16,7 @@
                 <a href="{{route('space.show',$post->slug)}}" wire:navigate class="text-decoration-none">
                     <div class="card_block p-3 rounded-3">
                         @if($post->featured_image)
-                        <div class="card-bg col-12" style="background-image: url({{asset($post->featured_image)}})"></div>
+                        <div class="card-bg col-12" style="background-image: url({{asset('storage/'.$post->featured_image)}})"></div>
                         @endif
                         <div class="d-flex flex-column align-items-start mt-1">
                             <h2 class="card_title fw-semibold pt-1 text-dark  mb-1 post=card-title" >{{$post->title}}</h2>

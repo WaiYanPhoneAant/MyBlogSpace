@@ -159,6 +159,7 @@ class PostResource extends Resource
                 TextColumn::make('title')->description(fn(Post $post): HtmlString => new HtmlString($post->excerpt))
                 ->wrap(true),
                 ImageColumn::make('featured_image')
+                                ->disk('public')
                                 ->label('Image'),
                 SelectColumn::make('status')
                     ->options([

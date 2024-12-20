@@ -10,12 +10,12 @@
                 <img src="https://preview.keenthemes.com/metronic8/demo38/assets/media/svg/brand-logos/xing-icon.svg"
                     class="w-100 p-3" alt="">
             </div> --}}
-            <div class="mt-1 w-100 d-flex justify-content-between">
-                <div class="col-md-6">
+            <div class="mt-1 w-100 row d-flex justify-content-between">
+                <div class="col-12">
                     <h1 class="view-title pt-0 mb-0 pb-0">{{$post->title}}</h1>
                     <span class="date fw-semibold"><i class="fa-solid fa-earth me-2 text-muted"></i>{{$post->published_at}}</span>
                 </div>
-                <div class="col-md-6 text-end project_detail mt-3 text-muted">
+                <div class="col-12 text-end project_detail mt-3 text-muted">
                     <button class="btn btn-sm shadow-sm" data-bs-toggle="modal" data-bs-target="#shareModal{{$post->id}}">
                         <i class="fa-solid fa-share text-primary"></i> Share
                     </button>
@@ -63,7 +63,7 @@
         @if($post->featured_image)
         <div class="col-md-7 m-auto">
             <div class="feature-image-div text-center p-5">
-                <img class="img-fluid rounded" alt="{{$post->slug}}" src="{{asset($post->featured_image)}}" alt="">
+                <img class="img-fluid rounded" alt="{{$post->slug}}" src="{{asset('storage/'.$post->featured_image)}}" alt="">
             </div>
         </div>
         @endif
