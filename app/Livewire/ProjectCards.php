@@ -15,6 +15,9 @@ class ProjectCards extends Component
     use WithPagination;
     public $keyword = '';
     public $loading = false;
+    public $perPage = 30;
+    protected $queryString = ['perPage'];
+
     #[On('search')]
     public function updatekeyword($keyword)
     {
@@ -30,7 +33,7 @@ class ProjectCards extends Component
         $posts = Post::when($this->keyword, function ($q) {
             $q->where("title", 'LIKE', "%{$this->keyword}%");
         })->OrderBy('published_at', 'DESC')
-            ->where('status','published')->paginate(30);
+            ->where('status','published')->paginate($this->perPage);
         $this->loading = false;
         return view('livewire.project-cards', compact('posts'));
     }

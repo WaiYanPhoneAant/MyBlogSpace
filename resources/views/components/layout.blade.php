@@ -35,10 +35,12 @@
         <footer class="bg-dark text-white text-center py-3 bottom-0 w-100 mt-5" wire:ignore>
             <div class="container">
                 <p>&copy; {{ date('Y') }} MyVerse. All rights reserved.</p>
-                <p>Follow us on:
-                    <a href="#" class="text-white mx-2">Facebook</a>
-                    <a href="#" class="text-white mx-2">Twitter</a>
-                    <a href="#" class="text-white mx-2">Instagram</a>
+                <p>
+                    {{-- Follow us on: --}}
+                    <a href="{{route('siteinfo.privacy')}}" wire:navigate class="text-white mx-2"><i class="fa-solid fa-shield-alt pe-1"></i> Privacy Policy</a>
+                    <a href="{{route('siteinfo.about')}}" class="text-white mx-2">  About Us</a>
+                    <i class="fa-solid fa-info-circle pe-1"></i>
+                    {{-- <a href="#" class="text-white mx-2">Instagram</a> --}}
                 </p>
             </div>
         </footer>
