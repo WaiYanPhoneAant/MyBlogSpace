@@ -28,8 +28,8 @@ class GenerateAIContent implements ShouldQueue
         // Simulate AI content generation
         $generatedContent = "Generated AI Content: " . $this->content;
 
-        $prompt = "Write a high-quality, engaging, and informative content piece for the following topic. Ensure the content includes headings, bullet points, and bold text where appropriate to enhance readability: ";
 
+ $prompt = "Write a high-quality, engaging, and informative content piece for the following topic. ";
         // (Please enhance the text design to align with a rich text editor, including headings,font weight bold for header, bullet points, and any other formatting that would improve readability)
         $yourApiKey = getenv('openai_key');
         $client = OpenAI::client($yourApiKey);
@@ -40,7 +40,11 @@ class GenerateAIContent implements ShouldQueue
             ],
         ]);
 
-        $generatedContent = $result->choices[0]->message->content;
+        $generatedContent = nl2br($result['choices'][0]['message']['content']);
+        $generatedContent = str_replace("**", "<strong>", $generatedContent);
+        $generatedContent = str_replace("__", "<strong>", $generatedContent);
+        $generatedContent = str_replace("**", "</strong>", $generatedContent);
+        $generatedContent = str_replace("__", "</strong>", $generatedContent);
 
         $slug = Str::slug($this->content);
         $uniqueSlug = $slug;
