@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class projectSpaceController extends Controller
@@ -36,6 +37,7 @@ class projectSpaceController extends Controller
     public function show(string $slug)
     {
 
+            $post = Post::where('slug', $slug)->frist()?->featured_image;
         return view('projectSpace.view',compact('slug'));
     }
 
