@@ -1,5 +1,5 @@
 <x-layout :style='asset("css/mySpace/view.css")'
-        :featuredImage='asset("storage/".$featured_image)' wire:key='view' title='{{$slug}}' :description='$slug'>
+        :featuredImage='asset("storage/".$featured_image)' wire:key='view' title='{{$title}}' :description='$excerpt'>
     <div class="container-fluid p-0" wire:ignore.self>
         <section class="w-auto   shadow-sm p-1 mini-nav" wire:ignore>
             <nav class="container d-flex justify-content-between  fw-bold p-2">
