@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{asset('cdn/bootstrap5.css')}}">
     <meta property="og:title" content="{{$title ?? 'Blog By Verse'}}">
     <meta property="og:description" content="{{$description ?? 'Blog By Verse'}}.">
-    <meta property="og:image" content="{{$featuredImage  }}">
+    <meta property="og:image" content="{{$featuredImage ??'' }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
     <link rel="canonical" href="{{ url()->current() }}">
