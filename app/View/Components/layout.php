@@ -16,14 +16,14 @@ class layout extends Component
     public $style;
     public $description;
     public $featuredImage='';
-    public $slug;
+    public $slug='';
     public function __construct($style='', $title='', $description='', $featuredImage='',$slug='')
     {
        $this->style=$style;
        $this->title=$title;
-         $this->description=$description;
-            $this->featuredImage=$featuredImage;
-            $this->slug=$slug;
+        $this->description=$description;
+        $this->featuredImage=$featuredImage;
+        $this->slug=$slug;
     }
 
     /**

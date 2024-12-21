@@ -25,10 +25,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="MyVerse">
     <meta property="og:locale" content="en_US">
-    @php
-        $keywords = $slug ? str_replace('-', ',', $slug) : 'blog, verse, articles';
-    @endphp
-    <meta name="keywords" content="{{$keywords?? 'blog, verse, articles'}}">
+    <meta name="keywords" content="{{$slug ? str_replace('-', ',', $slug) :  'blog, verse, articles'}}">
     <link rel="canonical" href="{{ url()->current() }}">
     <link rel="stylesheet" href="{{$style}}">
     @livewireStyles
