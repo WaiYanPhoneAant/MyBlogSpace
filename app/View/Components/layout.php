@@ -14,6 +14,7 @@ class layout extends Component
     public $style;
     public $title;
     public $description;
+    public $feature_image;
     public function __construct($style)
     {
        $this->style=$style;
