@@ -1,4 +1,4 @@
-<x-layout :style='asset("css/mySpace/codeSpace.css")' wire:key='nav' >
+<x-layout :style='asset("css/mySpace/codeSpace.css")' wire:key='nav' :slug="" >
     <div class="container-fluid p-0" wire:ignore.self>
         <section class="w-auto hero_section hero_section-filter shadow-sm p-1" id="heroSection" wire:ignore>
             <div class="bg-glass">
