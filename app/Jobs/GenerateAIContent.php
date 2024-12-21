@@ -28,9 +28,9 @@ class GenerateAIContent implements ShouldQueue
         // Simulate AI content generation
         $generatedContent = "Generated AI Content: " . $this->content;
 
-        $prompt = "Generate a blog post about this topic
-        (Please enhance the text design to align with a rich text editor, including headings,font weight bold for header, bullet points, and any other formatting that would improve readability): ";
+        $prompt = "Write a high-quality, engaging, and informative content piece for the following topic. Ensure the content includes headings, bullet points, and bold text where appropriate to enhance readability: ";
 
+        // (Please enhance the text design to align with a rich text editor, including headings,font weight bold for header, bullet points, and any other formatting that would improve readability)
         $yourApiKey = getenv('openai_key');
         $client = OpenAI::client($yourApiKey);
         $result = $client->chat()->create([
