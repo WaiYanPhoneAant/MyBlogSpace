@@ -23,6 +23,12 @@
     <meta property="og:image" content="{{$featuredImage ??'' }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MyVerse">
+    <meta property="og:locale" content="en_US">
+    @php
+        $keywords = $slug ? str_replace('-', ',', $slug) : 'blog, verse, articles';
+    @endphp
+    <meta name="keywords" content="{{$keywords?? 'blog, verse, articles'}}">
     <link rel="canonical" href="{{ url()->current() }}">
     <link rel="stylesheet" href="{{$style}}">
     @livewireStyles
