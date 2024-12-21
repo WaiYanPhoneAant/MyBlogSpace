@@ -28,8 +28,13 @@
     @livewireStyles
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1618114950811949"
         crossorigin="anonymous"></script>
+
+        <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+        </script>
 </head>
 <body>
+    <amp-auto-ads type="adsense" data-ad-client="ca-pub-1618114950811949">
+    </amp-auto-ads>
     <div class=" p-0" wire:ignore.self>
         <div class="min-vh-100"  style="margin-bottom: 300px;">{{$slot}}</div>
         <footer class="bg-dark text-white text-center py-3 bottom-0 w-100 mt-5" wire:ignore>
