@@ -11,13 +11,17 @@ class layout extends Component
     /**
      * Create a new component instance.
      */
-    public $style;
+
     public $title;
+    public $style;
     public $description;
-    public $feature_image;
-    public function __construct($style)
+    public $featuredImage='';
+    public function __construct($style, $title, $description, $featuredImage)
     {
        $this->style=$style;
+       $this->title=$title;
+         $this->description=$description;
+            $this->featuredImage=$featuredImage;
     }
 
     /**

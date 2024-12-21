@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-adsense-account" content="ca-pub-1618114950811949">
     <meta name="description" content="{{$description ?? 'Blog By Verse'}}">
-    <title>{{$title ?? 'Blog By Verse'}}</title>
+    <title>{{$title ? $title:'Blog By Verse'}}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{asset('cdn/bootstrap5.css')}}">
     <meta property="og:title" content="{{$title ?? 'Blog By Verse'}}">
     <meta property="og:description" content="{{$description ?? 'Blog By Verse'}}.">
-    <meta property="og:image" content="{{ $feature_image ?? asset('background/bg.jpg') }}">
+    <meta property="og:image" content="{{$featuredImage  }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
     <link rel="canonical" href="{{ url()->current() }}">

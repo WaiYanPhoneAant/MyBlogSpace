@@ -37,8 +37,10 @@ class projectSpaceController extends Controller
     public function show(string $slug)
     {
 
-            $featured_image = Post::where('slug', $slug)->first()?->featured_image;
-        return view('projectSpace.view',compact('slug','featured_image'));
+        $post = Post::where('slug', $slug)->first();
+        $featured_image=$post?->featured_image;
+        $excerpt=$post?->excerpt;
+        return view('projectSpace.view',compact('slug','featured_image','excerpt'));
     }
 
     /**
