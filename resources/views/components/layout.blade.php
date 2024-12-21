@@ -33,6 +33,7 @@
         </script>
 </head>
 <body>
+    {{-- @dd($style, $featuredImage, $title, $description) --}}
     <amp-auto-ads type="adsense" data-ad-client="ca-pub-1618114950811949">
     </amp-auto-ads>
     <div class=" p-0" wire:ignore.self>
